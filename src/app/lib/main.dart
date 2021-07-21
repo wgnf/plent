@@ -1,5 +1,6 @@
+import 'package:app/view/plent_app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  // nothing for now lol
+  runApp(PlentApp());
 }
