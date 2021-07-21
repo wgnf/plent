@@ -1,0 +1,6 @@
+{
+  "welcome" : "Welcome to Plent!",
+  "@welcome": {
+    "description": "Welcome-Message for users that enter Plent"
+  }
+}
