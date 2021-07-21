@@ -1,4 +1,4 @@
-package com.wgnf.app
+package com.wgnf.plent
 
 import io.flutter.embedding.android.FlutterActivity
 
