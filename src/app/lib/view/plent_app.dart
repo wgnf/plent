@@ -10,8 +10,8 @@ class PlentApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Plent', theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
-      home: Home()
-    );
+        title: 'Plent',
+        theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
+        home: Home());
   }
 }
