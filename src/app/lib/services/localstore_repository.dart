@@ -1,5 +1,8 @@
 import 'package:localstore/localstore.dart';
 
+// TODO: create dynamic! data as generic-type and automatic conversion to Map<string, dynamic>
+// TODO: get generic! automatic conversion from Map<string, dynamic> to generic-type
+
 class LocalStoreRepository {
   final _db = Localstore.instance;
 

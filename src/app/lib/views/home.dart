@@ -50,6 +50,8 @@ class _HomeState extends State<Home> {
   }
 
   Future<bool> _getIsFirstStartUp() async {
+    // TODO: move to 'configuration' collection
+    // TODO: determine first startup by checking login-mode == null
     var firstStartUpObj = await _repository.getAsync('state', 'first_startup');
 
     _isFirstStartUp = firstStartUpObj == null;
