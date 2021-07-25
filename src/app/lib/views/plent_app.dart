@@ -16,7 +16,9 @@ class PlentApp extends StatelessWidget {
 
     return MaterialApp(
         title: 'Plent',
-        theme: ThemeData(fontFamily: GoogleFonts.lato().fontFamily),
+        theme: ThemeData(
+            fontFamily: GoogleFonts.lato().fontFamily,
+            accentColor: Colors.lightGreen.shade300),
         home: Home(),
         navigatorObservers: [FirebaseAnalyticsObserver(analytics: analytics)],
         localizationsDelegates: AppLocalizations.localizationsDelegates,
