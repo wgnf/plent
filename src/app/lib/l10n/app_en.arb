@@ -1,4 +1,9 @@
 {
+  "generalLoading": "Loading",
+  "@generalLoading": {
+    "description": "Indicator that something is loading (maybe for a bit of time)"
+  },
+
   "welcome" : "Welcome to Plent!",
   "@welcome": {
     "description": "Welcome-Message for users that enter Plent"
