@@ -23,10 +23,13 @@ dependencies:
   firebase_analytics: ^8.2.0
   intl: ^0.17.0
   localstore: ^1.2.0
+  json_annotation: ^4.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  json_serializable: ^4.1.4
+  build_runner: ^2.1.1
 
 flutter:
   generate: true
