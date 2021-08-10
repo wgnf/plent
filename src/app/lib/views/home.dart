@@ -1,4 +1,5 @@
-import 'package:plent/services/localstore_repository.dart';
+import 'package:plent/models/configuration/configuration.dart';
+import 'package:plent/services/configuration_repository.dart';
 import 'package:plent/views/loading_indicator.dart';
 import 'package:plent/views/login_decision.dart';
 import 'package:plent/views/overview.dart';
@@ -13,24 +14,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _repository = LocalStoreRepository();
-  Future<bool>? _getFirstStartUpFuture;
-  bool _isFirstStartUp = false;
+  final _repository = ConfigurationRepository();
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _getFirstStartUpFuture,
-      builder: (context, AsyncSnapshot<bool> snapshot) {
+    return FutureBuilder<Configuration>(
+      future: _getConfiguration(),
+      builder: (context, AsyncSnapshot<Configuration> snapshot) {
         if (!snapshot.hasData) {
-          _getFirstStartUpFuture = _getIsFirstStartUp();
-
           return _buildLoadingIndicator(context);
         }
 
-        if (_isFirstStartUp) return _buildLoginDecision(context);
+        var configuration = snapshot.data;
+        var workingMode = configuration?.workingMode;
+        var firstStartUp = workingMode == null;
 
-        return _buildOverview(context);
+        return firstStartUp
+            ? _buildLoginDecision(context)
+            : _buildOverview(context);
       },
     );
   }
@@ -49,13 +50,11 @@ class _HomeState extends State<Home> {
     return Scaffold(body: Overview());
   }
 
-  Future<bool> _getIsFirstStartUp() async {
-    // TODO: move to 'configuration' collection
-    // TODO: determine first startup by checking login-mode == null
-    var firstStartUpObj = await _repository.getAsync('state', 'first_startup');
+  Future<Configuration> _getConfiguration() async {
+    var configuration = await _repository.get();
 
-    _isFirstStartUp = firstStartUpObj == null;
-
-    return true;
+    if (configuration == null)
+      configuration = Configuration();
+    return configuration;
   }
 }
