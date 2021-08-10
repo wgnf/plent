@@ -1,7 +1,7 @@
-import 'package:app/services/localstore_repository.dart';
-import 'package:app/views/loading_indicator.dart';
-import 'package:app/views/login_decision.dart';
-import 'package:app/views/overview.dart';
+import 'package:plent/services/localstore_repository.dart';
+import 'package:plent/views/loading_indicator.dart';
+import 'package:plent/views/login_decision.dart';
+import 'package:plent/views/overview.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
